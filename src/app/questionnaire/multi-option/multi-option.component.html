@@ -1,0 +1,33 @@
+<div id="multi-option">
+ 
+   <!-- Predefined Answers (as chips) -->
+
+   <div class="predefined-answers">
+    <mat-chip-list>
+      <ng-container *ngFor="let choice of question.choices">
+        <mat-chip *ngIf="!selectedOptions.includes(choice.label)" (click)="selectOption(choice.label)">
+          {{ choice.label }}
+        </mat-chip>
+      </ng-container>
+    </mat-chip-list>
+  </div>
+
+  
+
+ 
+ <!-- Input Field -->
+  <mat-form-field appearance="fill">
+    <mat-label>Write your answer</mat-label>
+    <input matInput [(ngModel)]="userInput" (keyup.enter)="addCustomOption(userInput)">
+  </mat-form-field>
+
+<!-- Selected Predefined Answers -->
+<div class="selected-options">
+  <span *ngFor="let option of selectedOptions" (click)="deselectOption(option)">
+    {{ option }}
+  </span>
+</div>
+
+  <!-- Confirm Button -->
+<!--  <button mat-raised-button color="primary" (click)="confirmAndProceed()">Confirm</button> -->
+</div>

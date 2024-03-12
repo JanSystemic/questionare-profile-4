@@ -1,0 +1,22 @@
+
+
+<mat-vertical-stepper linear #stepper>
+  <mat-step *ngFor="let question of questions$ | async">
+    <ng-template matStepLabel>{{question.headline}}</ng-template>
+
+    <!-- Display SingleOptionComponent for single-choice questions -->
+    <app-single-option *ngIf="question.question_type === 'multiple-choice' && question.multiple === 'false'" [question]="question"></app-single-option>
+
+    <!-- Display MultiOptionComponent for multiple-choice questions -->
+    <app-multi-option *ngIf="question.question_type === 'multiple-choice' && question.multiple === 'true'" [question]="question"></app-multi-option>
+
+    <!-- Display TextAnswerComponent for text questions -->
+    <app-text-answer *ngIf="question.question_type === 'text'" [question]="question"></app-text-answer>
+
+    <!-- Navigation buttons (optional) -->
+    <button mat-button matStepperPrevious>Back</button>
+    <button mat-button matStepperNext>Next</button>
+  </mat-step>
+</mat-vertical-stepper>
+
+<mat-icon>create</mat-icon>

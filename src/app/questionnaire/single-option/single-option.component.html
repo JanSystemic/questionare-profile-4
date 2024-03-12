@@ -1,0 +1,10 @@
+<!-- Multiple False -->
+<div *ngIf="question.multiple === 'false'" id="single-option">
+<mat-radio-group [(ngModel)]="selectedOption" (change)="gotoNext()">
+  <mat-radio-button *ngFor="let choice of question.choices; let i = index" 
+                    [value]="choice.value">
+    {{ choice.label }}
+  </mat-radio-button>
+</mat-radio-group>
+</div>
+<!-- !Multiple False -->

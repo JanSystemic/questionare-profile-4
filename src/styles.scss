@@ -1,0 +1,24 @@
+
+
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+
+body {
+  margin: 0;
+  padding: 0;
+ 
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.mat-form-field {
+  width: 90%;
+  margin: 10px;
+
+  &.mat-focused .mat-form-field-ripple {
+    background-color: #52B6AC;
+  }
+}
+
